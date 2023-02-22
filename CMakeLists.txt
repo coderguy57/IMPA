@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.8)
+project(IMPA LANGUAGES CXX)
+set (CMAKE_CXX_STANDARD 11)
+
+add_compile_options(-std=c++11 -O2)
+file(GLOB V_GLOB LIST_DIRECTORIES true [0-9]*)
+foreach(item ${V_GLOB})
+	if(IS_DIRECTORY ${item})
+		add_subdirectory(${item})
+	endif()
+endforeach()
